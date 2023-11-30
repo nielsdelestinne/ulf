@@ -10,12 +10,19 @@
 	</parent>
 	<groupId>be.niedel</groupId>
 	<artifactId>ulf</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${revision}</version>
 	<name>ulf</name>
-	<description>Demo project for Spring Boot</description>
+	<packaging>pom</packaging>
+
 	<properties>
 		<java.version>21</java.version>
+		<revision>0.0.1-SNAPSHOT</revision>
 	</properties>
+
+	<modules>
+		<module>ulf-back</module>
+	</modules>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

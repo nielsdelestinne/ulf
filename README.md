@@ -3,9 +3,12 @@
 > To install and manage the required runtime versions of the required tools, this project uses asdf: https://asdf-vm.com/. 
 
 From within the project's root:
-1. Run `adsf install` to install the required tools (mainly, the JDK).
+1. Run `adsf install` to install the required tools (JDK, Node.js).
 2. Run `. ~/.asdf/plugins/java/set-java-home.zsh` to properly set `JAVA_HOME`.
-3. Run `./mvnw clean package` to verify you can succesfully compile and build the project.
+3. Run `./mvnw clean install` to verify you can successfully compile and build the project's backend.
+
+Then:
+1. From within `ulf-front`, run `npm i` to install the frontend dependencies.
 
 # Scaffolding
 
