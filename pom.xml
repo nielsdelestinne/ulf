@@ -20,7 +20,7 @@
 	</properties>
 
 	<modules>
-		<module>ulf-back</module>
+		<module>ulf-datasync</module>
 	</modules>
 
 	<dependencies>
