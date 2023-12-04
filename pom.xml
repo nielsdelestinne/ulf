@@ -20,7 +20,8 @@
 	</properties>
 
 	<modules>
-		<module>ulf-datasync</module>
+		<module>ulf-datasink</module>
+		<module>ulf-model</module>
 	</modules>
 
 	<dependencies>
