@@ -23,3 +23,8 @@ A selection of the tools and dependencies include:
 * [JOOQ Access Layer](https://docs.spring.io/spring-boot/docs/3.2.0/reference/htmlsingle/index.html#data.sql.jooq)
 * [Spring Reactive Web](https://docs.spring.io/spring-boot/docs/3.2.0/reference/htmlsingle/index.html#web.reactive)
 
+## Resources:
+
+- https://msmechatronics.medium.com/websocket-wizardry-spring-webflux-edition-ca9d30346465
+- https://projectreactor.io/docs/core/release/reference/index.html#which-operator
+

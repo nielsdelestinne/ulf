@@ -1,9 +1,10 @@
-package be.niedel.ulf.datasink.collectors.ws;
+package be.niedel.ulf.api;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.HandlerMapping;
 import org.springframework.web.reactive.handler.SimpleUrlHandlerMapping;
+import reactor.core.publisher.Sinks;
 
 import java.util.Set;
 
@@ -11,23 +12,27 @@ import static java.util.stream.Collectors.toMap;
 import static org.springframework.core.Ordered.HIGHEST_PRECEDENCE;
 
 @Configuration
-public class WebSocketCollectorConfiguration {
+public class WebSocketConfiguration {
 
-    private final Set<WebSocketCollector> webSocketCollectors;
-
-    public WebSocketCollectorConfiguration(Set<WebSocketCollector> webSocketCollectors) {
-        this.webSocketCollectors = webSocketCollectors;
-    }
-
+    /**
+     * Maps all WebSocketController beans as web socket handlers
+     */
     @Bean
-    public HandlerMapping webSocketHandlerMapping() {
+    public HandlerMapping webSocketHandlerMapping(Set<WebSocketController> webSocketCollectors) {
         var collectorsByPath = webSocketCollectors.stream()
-                .collect(toMap(WebSocketCollector::path, webSocketCollector -> webSocketCollector));
+                .collect(toMap(WebSocketController::path, webSocketCollector -> webSocketCollector));
 
         SimpleUrlHandlerMapping handlerMapping = new SimpleUrlHandlerMapping();
         handlerMapping.setOrder(HIGHEST_PRECEDENCE);
         handlerMapping.setUrlMap(collectorsByPath);
         return handlerMapping;
     }
+
+    @Bean
+    public Sinks.Many<String> sink() {
+        // unicast v.s. multicast & backPressure v.s. bestEffort ...
+        return Sinks.many().multicast().onBackpressureBuffer();
+    }
+
 
 }

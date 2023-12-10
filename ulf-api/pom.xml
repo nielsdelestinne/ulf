@@ -8,6 +8,14 @@
 		<version>${revision}</version>
 	</parent>
 
-	<artifactId>ulf-model</artifactId>
+    <artifactId>ulf-api</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>be.niedel</groupId>
+			<artifactId>ulf-model</artifactId>
+			<version>${revision}</version>
+		</dependency>
+	</dependencies>
 
 </project>
