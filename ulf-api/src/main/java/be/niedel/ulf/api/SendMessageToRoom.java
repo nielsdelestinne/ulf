@@ -7,13 +7,13 @@ import reactor.core.publisher.Mono;
 
 import java.util.function.Consumer;
 
-public class SendMessageBack implements Consumer<String> {
+public class SendMessageToRoom implements Consumer<String> {
 
-    private static final Logger logger = LoggerFactory.getLogger(SendMessageBack.class);
+    private static final Logger logger = LoggerFactory.getLogger(SendMessageToRoom.class);
 
     private final WebSocketSession session;
 
-    public SendMessageBack(WebSocketSession session) {
+    public SendMessageToRoom(WebSocketSession session) {
         this.session = session;
     }
 

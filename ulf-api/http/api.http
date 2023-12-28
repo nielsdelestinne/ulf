@@ -1,0 +1,11 @@
+POST http://localhost:8123/api/v1/rooms
+Content-Type: application/json
+Accept: application/json
+
+###
+
+GET http://localhost:8123/api/v1/rooms/a27d58f6-b853-46e7-9fde-766f9f305fb7
+
+###
+
+GET http://localhost:8123/api/v1/rooms/50616cf4-ceda-46b7-a0e4-516fa468d07e

@@ -7,7 +7,6 @@ import reactor.core.publisher.Mono;
 
 import java.net.URI;
 import java.time.Duration;
-import java.util.UUID;
 
 public class DummyTempWebSocketClient {
 
@@ -16,13 +15,13 @@ public class DummyTempWebSocketClient {
     }
 
     public static void createClient() {
-        var key = UUID.randomUUID().toString().substring(0, 5);
+        var roomId = "50616cf4-ceda-46b7-a0e4-516fa468d07e";
         WebSocketClient client = new ReactorNettyWebSocketClient();
-        URI uri = URI.create("ws://localhost:8080/simple-messages");
+        URI uri = URI.create("ws://localhost:8123/join-room");
 
         client.execute(uri, webSocketSession ->
                 // send msg
-                webSocketSession.send(Mono.just(webSocketSession.textMessage(key))
+                webSocketSession.send(Mono.just(webSocketSession.textMessage(roomId))
                 ).and(
                         // receive message
                         webSocketSession.receive()
